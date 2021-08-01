@@ -15,7 +15,7 @@ Após a inicialização do elevador, você terá as seguintes opções:
 
 **Tecla #**: fecha a porta
 
-Como todo elevador, sua função principal é mudar de andar. Para isso você pode escolher o andar pelas teclas e a partir disso, ele irá "se movimentar" com o cooler e você poderá acompanha o andar atual pelos LEDs. Ele também simula a abertura e fechamento da porta, através do relé. Por fim, ele apresenta uma funcionalidade muito comum nos elevadores, a função de chamar ajuda, que é simulada pelo buzzer. Todas essas funções também são comunicadas pelo display LCD.
+Como todo elevador, sua função principal é mudar de andar. Para isso você pode escolher o andar pelas teclas e a partir disso, ele irá "se movimentar" com o cooler e você poderá acompanha o andar atual pelos LEDs. Ele também simula a abertura e fechamento da porta, através do relé. Por fim, ele apresenta uma funcionalidade muito comum nos elevadores, a função de chamar ajuda, que é simulada pelo buzzer. Todas essas funções, além de uma mensagem de boas-vindas, também são comunicadas pelo display LCD.
 
 
 ## Como usar o código
