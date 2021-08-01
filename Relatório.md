@@ -1,8 +1,9 @@
 
 ## Step 1 Passos iniciais
-A linguagem utilizada foi C. Os softwares usados foram MPLAB X IDE v5.30 juntamente com o compilador XC8 v2.32 e o simulador PICSimLab v0.8.6 para a PICGenios com PIC18F4520.
 
 Minha ideia era projetar um programa que simulasse um _elevador_ em um prédio de 5 andares, e, principalmente, o painel do elevador. Para isso tive que pensar em quais funcionalidades são utilizadas em um elevador. Inicialmente, pensei em utilizar o Display LCD 16x2 para escrever mensagens, as teclas para o usuário escolher o andar, chamar ajuda e abrir e fechar a porta, os LEDs ou o display de 7 segmentos para mostrar o andar em que o elevador está no momento, o buzzer para simular um alarme, e o relé para simular as portas abertas/fechadas. Mais tarde, acabei optando pelos LEDs na representação do andar atual, devido a facilidade e ao design, e decidi adicionar também o cooler/ventoinha para simular o movimento do elevador.
+
+A linguagem utilizada foi C. Os softwares usados foram MPLAB X IDE v5.45 juntamente com o compilador XC8 v2.32 e o simulador PICSimLab v0.8.2 para a PICGenios com PIC18F4520.
 
 ## Step 2 Bibliotecas e defines
 
