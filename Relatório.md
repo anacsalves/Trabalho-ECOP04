@@ -63,7 +63,6 @@ Enquanto isso, se o _bitTst_ for realizado e a tecla " * " for pressionada, abri
 
 ## Problemas e soluções
 
-No início apresentei alguns problemas, inclusive de entendimento da matéria, devido ao fato de estarmos tendo aula presencial. Porém, com o tempo e com as video-aulas dos professores Otávio e Rodrigo, pude aprender melhor e resolver as questões enfrentadas.
+No início apresentei alguns problemas, inclusive de entendimento da matéria, devido ao fato de estarmos tendo aula à distáncia. Porém, com o tempo e com as video-aulas dos professores Otávio e Rodrigo, pude aprender melhor e resolver as questões enfrentadas.
 
 
-## Conclusão
