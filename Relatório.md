@@ -1,7 +1,7 @@
 
 ## Step 1 Passos iniciais
 
-Minha ideia era projetar um programa que simulasse um _elevador_, e, principalmente, seu painel. Para isso tive que pensar em quais funcionalidades são utilizadas em um elevador. Inicialmente, pensei em utilizar o Display LCD para escrever mensagens, as teclas para o usuário escolher o andar e chamar ajuda, os LEDs ou o display de 7 segmentos para mostrar o andar em que o elevador está no momento, o buzzer para simular um alarme, e o relé para simular as portas abertas/fechadas. Mais tarde, acabei optando pelos LEDs, devido a facilidade e ao design, e decidindo adicionar também o cooler para simular o movimento do elevador.
+Minha ideia era projetar um programa que simulasse um _elevador_, e, principalmente, seu painel. Para isso tive que pensar em quais funcionalidades são utilizadas em um elevador. Inicialmente, pensei em utilizar o Display LCD para escrever mensagens, as teclas para o usuário escolher o andar e chamar ajuda, os LEDs ou o display de 7 segmentos para mostrar o andar em que o elevador está no momento, o buzzer para simular um alarme, e o relé para simular as portas abertas/fechadas. Mais tarde, acabei optando pelos LEDs, devido a facilidade e ao design, e decidi adicionar também o cooler/ventoinha para simular o movimento do elevador.
 
 ## Step 2 Bibliotecas e defines
 
@@ -33,13 +33,37 @@ As variáveis do tipo char que estão entre aspas representam mensagens que ser�
 
 ## Step 4 Iniciando o elevador
 
-Para isso, foram chamadas as funções _lcdInit()_ e _kpInit()_, que ligam o display LCD e o teclado, respectivamente. É apresentada no LCD a mensagem de boas vindas do elevador. Com a função _bitSet(PORTC, 0);_ o relé é "aceso", o que significa que a porta está aberta. Além disso, é iniciado o _for(;;)_, dentro dele estão todas as leituras de teclas, o que faz com que as teclas sejam lidas para sempre. Dentro do for(;;), também está o kpDebounce para evitar o bouncing das teclas, e um _if_ que define que a tecla só será lida se o valor dela for diferente do anterior, ou seja, se ela for clicada.
+Para isso, foram chamadas as funções _lcdInit()_ e _kpInit()_, que ligam o display LCD e o teclado, respectivamente. É apresentada no LCD a mensagem de boas vindas do elevador. Com a função _bitSet(PORTC, 0);_ o relé é "aceso", o que significa que a porta está aberta. Além disso, é iniciado o _for(;;)_, dentro dele estão todas as leituras de teclas, o que faz com que as teclas sejam lidas para sempre. Dentro do for(;;), também está o kpDebounce para evitar o bouncing do teclado, e um _if_ que define que a tecla só será lida se o valor dela for diferente do anterior, ou seja, se ela for clicada.
 ![2021-08-01 (4)](https://user-images.githubusercontent.com/88052180/127774393-d5de5bca-c206-4587-a00d-e79be304c299.png)
 
 
 ## Step 5 Andares
 
-É realizado a leitura da tecla e se, por exemplo, você aperta a tecla 2 o elevador irá para o segundo andar. Em cada andar uma série de funções é acionada: primeiramente, a mensagem antiga é apagada, e uma nova, dizendo para qual andar o usuário está indo é apresentada; depois o relé é desligado, simulando porta fechada, e o cooler é ligado, aparentando que o elevador está em movimento.
-![2021-07-31 (34)](https://user-images.githubusercontent.com/88052180/127774651-7326752e-6811-4f75-8993-80a3ab98e6a9.png)
+É realizado a leitura da tecla, através do _bitTst_, e se, por exemplo, você aperta a tecla 2 o elevador irá para o segundo andar. Em cada andar uma série de funções é acionada: primeiramente, a mensagem antiga é apagada, e uma nova, dizendo para qual andar o usuário está indo é apresentada; depois o relé é desligado, simulando porta fechada, e o cooler é ligado, aparentando que o elevador está em movimento.
+![2021-07-31 (36)](https://user-images.githubusercontent.com/88052180/127775410-bf288bd4-8fea-4974-a24c-fda8360b4196.png)
 
 
+Depois, de acordo com o andar anterior, que estava salvo no _aux_, os LEDs irão acender de determinada maneira, parando de mover no andar escolhido. Também há um _if_ para que a pessoa seja avisada, caso escolha o andar em que ela já estava.
+![2021-07-31 (35)](https://user-images.githubusercontent.com/88052180/127775325-7c9ba723-b8a4-4524-ab8c-36384307c55c.png)
+
+
+Ao final do processo, o cooler é desligado, a porta é aberta, e o andar atual é salvo no _aux_. O processo é o mesmo em todos os andares.
+![2021-07-31 (37)](https://user-images.githubusercontent.com/88052180/127775484-3fa5ab3f-4c30-4e71-b165-db821c642426.png)
+
+
+## Step 6 Botões de ajuda e de abrir e fechar porta
+
+Estas são algumas funcionalidades extras. Se acontecer algum problema, o usuário poderá pressionar o botão "0" e então o buzzer será acionado e a mensagem "Chamando ajuda" com um símbolo de alarme ligado aparecerão no display LCD; _auxa_ terá seu valor alterado para 1. Para desligar o alarme basta pressionar novamente a tecla "0" e o buzzer irá parar de tocar e o valor do _auxa_ irá para 0. 
+![2021-07-31 (38)](https://user-images.githubusercontent.com/88052180/127775823-0efbf0af-c3dd-4e45-b7c8-2ddc0a92640c.png)
+![2021-07-31 (39)](https://user-images.githubusercontent.com/88052180/127775906-825fbb2d-865e-4982-afde-c8c453e27e34.png)
+
+Enquanto isso, se o _bitTst_ for realizado e a tecla " * " for pressionada, abrirá a porta, acendendo o relé e mostrando mensagem no display, com imagem, e se o _bitTst_ for realizado e a tecla " # ", a porta fechará, apagando o relé e mostrando nova mensagem também com imagem.
+![2021-07-31 (40)](https://user-images.githubusercontent.com/88052180/127775965-9b859064-d811-435a-a9d6-c5faeacf1bfa.png)
+
+
+## Problemas e soluções
+
+No início apresentei alguns problemas, inclusive de entendimento da matéria, devido ao fato de estarmos tendo aula presencial. Porém, com o tempo e com as video-aulas dos professores Otávio e Rodrigo, pude aprender melhor e resolver as questões enfrentadas.
+
+
+## Conclusão
