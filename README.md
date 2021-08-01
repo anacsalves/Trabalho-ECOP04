@@ -20,7 +20,7 @@ Como todo elevador, sua função principal é mudar de andar. Para isso você po
 
 ## Como usar o código
 
-O principal método é utilizar o [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide) com o compilador XC8, após isso é apenas baixar o arquivo compactado "trabalho" e importar tudo para o programa MPLab. Além disso, para poder executar e testar os códigos é necessário do [PICSimLab](https://github.com/lcgamboa/picsimlab). A placa utilizada é a PICGENIOS e o microcontrolador é o PIC18F4520. Após o download e inicialização vá na barra superior e clique em _Files_ -> _Load Hex_, o arquivo que será colocado está nesta pasta `trabalho.X\dist\default\production\trabalho.X.productions.hex`.
+O principal método é utilizar o [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide) com o compilador XC8, após isso é apenas baixar o arquivo compactado "trabalho.X.zip" e importar tudo para o programa MPLab. Além disso, para poder executar e testar os códigos é necessário do [PICSimLab](https://github.com/lcgamboa/picsimlab). A placa utilizada é a PICGENIOS e o microcontrolador é o PIC18F4520. Após o download e inicialização vá na barra superior e clique em _Files_ -> _Load Hex_, o arquivo que será colocado está nesta pasta `trabalho.X\dist\default\production\trabalho.X.productions.hex`.
 
 
 ## Créditos
